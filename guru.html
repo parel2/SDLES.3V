@@ -15,7 +15,7 @@
 </head>
 <body>
   <header class="app-header">
-    <span class="title">📚 Dashboard Guru</span>
+    <span class="title">Dashboard Guru</span>
     <div class="user-info">
       <span class="name" id="userName">—</span>
       <span class="badge">Guru</span>
@@ -26,8 +26,8 @@
   <div class="page-wrap">
     <div class="nav-tabs" id="navTabs">
       <button class="nav-tab active" data-tab="siswa" onclick="switchTab('siswa')">Daftar Siswa</button>
-      <button class="nav-tab" data-tab="esai" onclick="switchTab('esai')">Jawaban Esai</button>
-      <button class="nav-tab" data-tab="prompt" onclick="switchTab('prompt')">Generator Prompt</button>
+      <button class="nav-tab" data-tab="esai" onclick="switchTab('esai')">Penilaian Esai</button>
+      <button class="nav-tab" data-tab="prompt" onclick="switchTab('prompt')">Buat Soal</button>
       <button class="nav-tab" data-tab="drop" onclick="switchTab('drop')">Drop Soal</button>
       <button class="nav-tab" data-tab="pengaturan" onclick="switchTab('pengaturan')">Pengaturan</button>
     </div>
@@ -43,7 +43,7 @@
 
     <!-- Tab: Esai -->
     <div class="tab-content" id="tabEsai">
-      <h2 class="page-title">Jawaban Esai Menunggu Penilaian</h2>
+      <h2 class="page-title">Jawaban Menunggu Penilaian</h2>
       <div id="esaiList" class="student-list">
         <div class="loading">Memuat jawaban esai...</div>
       </div>
@@ -67,16 +67,16 @@
           <input type="text" id="promptJudul" placeholder="Misal: Wawasan Kebangsaan, Biologi, Bahasa Inggris">
         </div>
         <div class="form-group">
-          <label for="promptJumlah">Jumlah Soal (10-50)</label>
+          <label for="promptJumlah">Jumlah Soal </label>
           <input type="number" id="promptJumlah" min="10" max="50" value="20">
         </div>
         <div class="form-group">
-          <label for="promptLevel">Level Kesulitan (1-6): <span id="levelDisplay">3</span></label>
+          <label for="promptLevel">Level Kesulitan : <span id="levelDisplay">3</span></label>
           <input type="range" id="promptLevel" min="1" max="6" value="3" oninput="document.getElementById('levelDisplay').textContent=this.value">
         </div>
         <div class="form-group">
           <label for="promptMateri">Materi Ajar</label>
-          <textarea id="promptMateri" placeholder="Tempelkan materi ajar di sini..." style="min-height:200px; max-height:500px;"></textarea>
+          <textarea id="promptMateri" placeholder="Materi aja digunakan dalam pembuatan soal....." style="min-height:200px; max-height:500px;"></textarea>
         </div>
         <button class="btn-primary btn-big" onclick="generatePrompt()">Berikan Prompt</button>
       </div>
@@ -95,7 +95,7 @@
     <div class="tab-content" id="tabDrop">
       <h2 class="page-title">Drop Soal</h2>
       <div class="card" style="max-width:700px;">
-        <p style="color:var(--text-muted); margin-bottom:16px;">Tempelkan JSON soal hasil dari AI di bawah ini.</p>
+        <p style="color:var(--text-muted); margin-bottom:16px;">Tempelkan Kode soal hasil dari AI di bawah ini.</p>
         <div class="form-group">
           <textarea id="dropJson" placeholder='{"judul": "...", "kelas": 4, "level": 3, "soal": [...]}' style="min-height:250px; max-height:500px; font-family:monospace; font-size:0.85rem;"></textarea>
         </div>
@@ -114,7 +114,7 @@
       <div class="card" style="max-width:600px;">
         <h3 style="color:var(--error); margin-bottom:12px;">Zona Berbahaya</h3>
         <p style="color:var(--text-muted); margin-bottom:16px; font-size:0.92rem;">
-          Tombol "Reset Total" akan menghapus SEMUA data di aplikasi ini — semua siswa, semua modul, dan semua jawaban esai.
+          Tombol "Reset Total" akan menghapus SEMUA data di aplikasi ini termasuk semua siswa, semua modul, dan semua jawaban esai.
           Aksi ini tidak bisa dibatalkan.
         </p>
         <div class="form-group">
